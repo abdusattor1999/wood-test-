@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load menu_tags %}
+
+
+{% block content %}
+    {% if children_menu %}
+        <nav>
+            {% draw_menu children_menu %}
+        </nav>
+    {% endif %}
+    {% if woods %}
+        {% for wood in woods %}
+        <div class="wood-box">
+            <h2> {{wood.title}} </h2>
+            <p> {{wood.description}} </p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h1 style="display: block; align-items: center;">There is no wood in this menu</h1>
+    {% endif %}
+
+{% endblock content %}
